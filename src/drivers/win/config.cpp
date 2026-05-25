@@ -238,6 +238,7 @@ static CFGSTRUCT fceuconfig[] =
 	AC(muteTurbo),
 	AC(swapDuty),
 	AC(linearMixer),
+	AC(reverseDPCM),
 	AC(notResetPhase),
 
 	AC(goptions),

@@ -112,6 +112,7 @@ extern int soundquality;
 extern bool muteTurbo;
 extern bool swapDuty;
 extern bool linearMixer;
+extern bool reverseDPCM;
 extern bool notResetPhase;
 
 extern int cpalette_count;

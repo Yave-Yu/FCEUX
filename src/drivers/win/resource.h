@@ -846,6 +846,7 @@
 #define IDC_C_WATCH_UP                  1243
 #define IDC_C_WATCH_DOWN                1244
 #define IDC_PROMPT_TEXT                 1245
+#define CHECK_SOUND_REVERSEDPCM			1246
 #define IDC_PROMPT_EDIT                 1247
 #define IDC_BUTTON_LUABROWSE            1248
 #define IDC_BUTTON_LUARUN               1249

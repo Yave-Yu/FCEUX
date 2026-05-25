@@ -229,7 +229,7 @@ static DECLFW(Write_PSG)
 		DoSQ1();
 		EnvUnits[0].Mode=(V&0x30)>>4;
 		EnvUnits[0].Speed=(V&0xF);
-		if (swapDuty)
+		if(swapDuty)
 			V = (V&0x3F)|((V&0x80)>>1)|((V&0x40)<<1);
 		break;
 	case 0x1:
@@ -250,7 +250,7 @@ static DECLFW(Write_PSG)
 		DoSQ2();
 		EnvUnits[1].Mode=(V&0x30)>>4;
 		EnvUnits[1].Speed=(V&0xF);
-		if (swapDuty)
+		if(swapDuty)
 			V = (V&0x3F)|((V&0x80)>>1)|((V&0x40)<<1);
 		break;
 	case 0x5:
@@ -561,7 +561,7 @@ void FCEU_SoundCPUHook(int cycles)
   if(DMCHaveSample)
   {
    uint8 bah=RawDALatch;
-   int t=((DMCShift&1)<<2)-2;
+   int t=reverseDPCM?((DMCShift&128)>>5)-2:((DMCShift&1)<<2)-2;
 
    /* Unbelievably ugly hack */
    if(FSettings.SndRate)
@@ -578,7 +578,15 @@ void FCEU_SoundCPUHook(int cycles)
 
   DMCacc+=DMCPeriod;
   DMCBitCount=(DMCBitCount+1)&7;
-  DMCShift>>=1;
+  if(reverseDPCM)
+  {
+   DMCShift<<=1;
+  }
+  else
+  {
+   DMCShift>>=1;
+  }
+  
   tester();
  }
 }
@@ -1250,14 +1258,14 @@ void SetSoundVariables(void)
    wlookup1[0]=0;
    for(x=1;x<32;x++)
    {
-    wlookup1[x]=(double)16*16*16*4*95.52/((double)8128/(double)x+100);
+    wlookup1[x]=(double)16*16*16*4*95.88/((double)8128/(double)x+75);
     if(!FSettings.soundq) wlookup1[x]>>=4;
    }
    wlinear1=wlookup1[15];
    wlookup2[0]=0;
    for(x=1;x<203;x++)
    {
-    wlookup2[x]=(double)16*16*16*4*163.67/((double)24329/(double)x+100);
+    wlookup2[x]=(double)16*16*16*4*159.79/((double)22638/(double)x+100);
     if(!FSettings.soundq) wlookup2[x]>>=4;
    }
    if(FSettings.soundq>=1)
