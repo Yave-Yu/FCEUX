@@ -81,6 +81,7 @@ int dendy;
 bool linearMixer;
 bool notResetPhase;
 bool swapDuty;
+bool reverseDPCM;
 
 static bool luaScriptRunning = false;
 
@@ -242,6 +243,9 @@ int LoadGame(const char *path, bool silent)
 
 	g_config->getOption("SDL.SwapDuty", &id);
 	swapDuty = id;
+	
+	g_config->getOption("SDL.ReverseDPCM", &id);
+	reverseDPCM = id;
 	
 	std::string filename;
 	g_config->getOption("SDL.Sound.RecordFile", &filename);

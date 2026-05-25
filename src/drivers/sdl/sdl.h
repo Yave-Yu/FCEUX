@@ -25,6 +25,7 @@ extern int pal_emulation;
 extern bool linearMixer;
 extern bool notResetPhase;
 extern bool swapDuty;
+extern bool reverseDPCM;
 
 int LoadGame(const char *path, bool silent = false);
 int CloseGame(void);

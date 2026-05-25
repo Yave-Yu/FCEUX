@@ -16,6 +16,7 @@ extern bool turbo;
 extern bool linearMixer;
 extern bool notResetPhase;
 extern bool swapDuty;
+extern bool reverseDPCM;
 extern bool pauseAfterPlayback;
 extern bool suggestReadOnlyReplay;
 extern bool emulatorCycleToggle;

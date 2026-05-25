@@ -164,7 +164,7 @@ ConsoleSndConfDialog_t::ConsoleSndConfDialog_t(QWidget *parent)
 	connect(linearMixerChkbox, SIGNAL(stateChanged(int)), this, SLOT(linearMixerCallback(int)));
 	
 	// Not Reset Square Phase
-	notResetPhaseChkbox = new QCheckBox(tr("Not Reset Square Phase"));
+	notResetPhaseChkbox = new QCheckBox(tr("Not Reset Phase"));
 	vbox1->addWidget(notResetPhaseChkbox);
 	
 	setCheckBoxFromProperty(notResetPhaseChkbox, "SDL.NotResetPhase");
@@ -180,6 +180,14 @@ ConsoleSndConfDialog_t::ConsoleSndConfDialog_t(QWidget *parent)
 	connect(swapDutyChkbox, SIGNAL(stateChanged(int)), this, SLOT(swapDutyCallback(int)));
 
 	hbox1->addLayout(vbox1);
+	
+	// Reverse DPCM Bit
+	reverseDPCMChkbox = new QCheckBox(tr("Reverse DPCM Bit"));
+	vbox1->addWidget(reverseDPCMChkbox);
+	
+	setCheckBoxFromProperty(reverseDPCMChkbox, "SDL.ReverseDPCM");
+
+	connect(reverseDPCMChkbox, SIGNAL(stateChanged(int)), this, SLOT(reverseDPCMCallback(int)));
 
 	frame = new QGroupBox(tr("Mixer:"));
 	hbox2 = new QHBoxLayout();
@@ -643,6 +651,21 @@ void ConsoleSndConfDialog_t::swapDutyCallback(int value)
 	{
 		g_config->setOption("SDL.SwapDuty", 0);
 		swapDuty = 0;
+	}
+	g_config->save();
+}
+//----------------------------------------------------
+void ConsoleSndConfDialog_t::reverseDPCMCallback(int value)
+{
+	if (value)
+	{
+		g_config->setOption("SDL.ReverseDPCM", 1);
+		reverseDPCM = 1;
+	}
+	else
+	{
+		g_config->setOption("SDL.ReverseDPCM", 0);
+		reverseDPCM = 0;
 	}
 	g_config->save();
 }

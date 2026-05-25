@@ -551,6 +551,7 @@ InitConfig()
 	config->addOption("linearMixer", "SDL.LinearMixer", 0);
 	config->addOption("notResetPhase", "SDL.NotResetPhase", 0);
 	config->addOption("swapduty", "SDL.SwapDuty", 0);
+	config->addOption("reverseDPCM", "SDL.ReverseDPCM", 0);
 	config->addOption("ramInit", "SDL.RamInitMethod", 0);
 	config->addOption("SDL.FrameAdvanceDelay", 40);
 

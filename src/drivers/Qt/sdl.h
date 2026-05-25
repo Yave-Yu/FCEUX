@@ -25,6 +25,7 @@ extern int pal_emulation;
 extern bool linearMixer;
 extern bool notResetPhase;
 extern bool swapDuty;
+extern bool reverseDPCM;
 
 void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count);
 uint64 FCEUD_GetTime();

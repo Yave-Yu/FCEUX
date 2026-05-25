@@ -264,6 +264,21 @@ void toggleSwapDuty (GtkWidget * w, gpointer p)
 	g_config->save ();
 }
 
+void toggleReverseDPCM (GtkWidget * w, gpointer p)
+{
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)))
+	{
+		g_config->setOption ("SDL.ReverseDPCM", 1);
+		reverseDPCM = 1;
+	}
+	else
+	{
+		g_config->setOption ("SDL.ReverseDPCM", 0);
+		reverseDPCM = 0;
+	}
+	g_config->save ();
+}
+
 // Wrapper for pushing GTK options into the config file
 // p : pointer to the string that names the config option
 // w : toggle widget
@@ -1315,6 +1330,7 @@ void openSoundConfig (void)
 	GtkWidget *linearMixerChk;
 	GtkWidget *notResetPhaseChk;
 	GtkWidget *swapDutyChk;
+	GtkWidget *reverseDPCMChk;
 	GtkWidget *mixerFrame;
 	GtkWidget *mixerHbox;
 	GtkWidget *mixers[6];
@@ -1409,8 +1425,8 @@ void openSoundConfig (void)
 			  NULL);
 	setCheckbox (linearMixerChk, "SDL.LinearMixer");
 	
-	// Not Reset Square Phase
-	notResetPhaseChk = gtk_check_button_new_with_label ("Not Reset Square Phase");
+	// Not reset square phase
+	notResetPhaseChk = gtk_check_button_new_with_label ("Not Reset Phase");
 	g_signal_connect (notResetPhaseChk, "clicked", G_CALLBACK (toggleNotResetPhase),
 			  NULL);
 	setCheckbox (notResetPhaseChk, "SDL.NotResetPhase");
@@ -1420,6 +1436,12 @@ void openSoundConfig (void)
 	g_signal_connect (swapDutyChk, "clicked", G_CALLBACK (toggleSwapDuty),
 			  NULL);
 	setCheckbox (swapDutyChk, "SDL.SwapDuty");
+	
+	// Reverse DPCM bit
+	reverseDPCMChk = gtk_check_button_new_with_label ("Reverse DPCM Bit");
+	g_signal_connect (reverseDPCMChk, "clicked", G_CALLBACK (toggleReverseDPCM),
+			  NULL);
+	setCheckbox (reverseDPCMChk, "SDL.ReverseDPCM");
 
 	// mixer
 	mixerFrame = gtk_frame_new ("Mixer:");
@@ -1466,6 +1488,7 @@ void openSoundConfig (void)
 	gtk_box_pack_start (GTK_BOX (vbox), linearMixerChk, FALSE, TRUE, 5);
 	gtk_box_pack_start (GTK_BOX (vbox), notResetPhaseChk, FALSE, TRUE, 5);
 	gtk_box_pack_start (GTK_BOX (vbox), swapDutyChk, FALSE, TRUE, 5);
+	gtk_box_pack_start (GTK_BOX (vbox), reverseDPCMChk, FALSE, TRUE, 5);
 	gtk_box_pack_start (GTK_BOX (main_hbox), mixerFrame, TRUE, TRUE, 5);
 	gtk_container_add (GTK_CONTAINER (mixerFrame), mixerHbox);
 

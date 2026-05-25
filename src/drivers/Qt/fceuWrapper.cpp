@@ -92,6 +92,7 @@ int KillFCEUXonFrame = 0;
 bool linearMixer = 0;
 bool notResetPhase = 0;
 bool swapDuty = 0;
+bool reverseDPCM = 0;
 bool turbo = false;
 bool pauseAfterPlayback = false;
 bool suggestReadOnlyReplay = true;
@@ -466,6 +467,9 @@ int LoadGame(const char *path, bool silent, bool netPlayRequested)
 
 	g_config->getOption("SDL.SwapDuty", &id);
 	swapDuty = id;
+	
+	g_config->getOption("SDL.ReverseDPCM", &id);
+	reverseDPCM = id;
 	
 	// Wave Recording done through menu or hotkeys
 	//std::string filename;

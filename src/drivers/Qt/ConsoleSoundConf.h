@@ -36,6 +36,7 @@ protected:
 	QCheckBox *linearMixerChkbox;
 	QCheckBox *notResetPhaseChkbox;
 	QCheckBox *swapDutyChkbox;
+	QCheckBox *reverseDPCMChkbox;
 	QCheckBox *useGlobalFocus;
 	QComboBox *qualitySelect;
 	QComboBox *rateSelect;
@@ -76,6 +77,7 @@ private slots:
 	void linearMixerCallback(int value);
 	void notResetPhaseCallback(int value);
 	void swapDutyCallback(int value);
+	void reverseDPCMCallback(int value);
 	void useGlobalFocusChanged(int value);
 	void soundQualityChanged(int index);
 	void soundRateChanged(int index);
