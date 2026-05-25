@@ -782,7 +782,7 @@ static void Do5SQ(int P) {
 	MMC5Sound.BC[P] = end;
 
 	wl = MMC5Sound.wl[P] + 1;
-	amp = (MMC5Sound.env[P] & 0xF) << 4;
+	amp = (MMC5Sound.env[P] & 0xF) * 12;
 	rthresh = tal[(MMC5Sound.env[P] & 0xC0) >> 6];
 
 	if (wl >= 8 && (MMC5Sound.running & (P + 1))) {
@@ -812,7 +812,7 @@ static void Do5SQHQ(int P) {
 	int32 amp, rthresh, wl;
 
 	wl = MMC5Sound.wl[P] + 1;
-	amp = ((MMC5Sound.env[P] & 0xF) << 8);
+	amp = ((MMC5Sound.env[P] & 0xF) * 192);
 	rthresh = tal[(MMC5Sound.env[P] & 0xC0) >> 6];
 
 	if (wl >= 8 && (MMC5Sound.running & (P + 1))) {
