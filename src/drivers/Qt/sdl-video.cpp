@@ -144,24 +144,29 @@ void CalcVideoDimensions(void)
 			nes_shm->video.xscale = 1;
 			nes_shm->video.yscale = 1;
 		break;
-		case 1: // hq2x
-		case 2: // Scale2x
+		case 1: // HQ 2x
+		case 2: // Scale 2x
 		case 3: // NTSC 2x
-		case 6: // Prescale2x
+		case 6: // Prescale 2x
 			nes_shm->video.xscale = 2;
 			nes_shm->video.yscale = 2;
 		break;
-		case 4: // hq3x
-		case 5: // Scale3x
-		case 7: // Prescale3x
+		case 4: // HQ 3x
+		case 5: // Scale 3x
+		case 7: // Prescale 3x
 			nes_shm->video.xscale = 3;
 			nes_shm->video.yscale = 3;
 		break;
-		case 8: // Prescale4x
-			nes_shm->video.xscale = 4;
-			nes_shm->video.yscale = 4;
+		case 8: // Prescale 4x
+		case 9: // Prescale 5x
+		case 10: // Prescale 6x
+		case 11: // Prescale 7x
+		case 12: // Prescale 8x
+		case 13: // Prescale 9x
+			nes_shm->video.xscale = video.xscale - 4;
+			nes_shm->video.yscale = video.yscale - 4;
 		break;
-		case 9: // PAL
+		case 14: // PAL
 			nes_shm->video.xscale = 3;
 			nes_shm->video.yscale = 1;
 		break;
@@ -176,7 +181,7 @@ void CalcVideoDimensions(void)
 	{
 		nes_shm->video.ncol = iScale*NWIDTH;
 	}
-	if ( s_sponge == 9 )
+	if ( s_sponge == 14 )
 	{
 		nes_shm->video.nrow  = 1*s_tlines;
 		nes_shm->video.xyRatio = 3;
@@ -234,24 +239,29 @@ int InitVideo(FCEUGI *gi)
 			nes_shm->video.xscale = 1;
 			nes_shm->video.yscale = 1;
 		break;
-		case 1: // hq2x
-		case 2: // Scale2x
+		case 1: // HQ 2x
+		case 2: // Scale 2x
 		case 3: // NTSC 2x
-		case 6: // Prescale2x
+		case 6: // Prescale 2x
 			nes_shm->video.xscale = 2;
 			nes_shm->video.yscale = 2;
 		break;
-		case 4: // hq3x
-		case 5: // Scale3x
-		case 7: // Prescale3x
+		case 4: // HQ 3x
+		case 5: // Scale 3x
+		case 7: // Prescale 3x
 			nes_shm->video.xscale = 3;
 			nes_shm->video.yscale = 3;
 		break;
-		case 8: // Prescale4x
-			nes_shm->video.xscale = 4;
-			nes_shm->video.yscale = 4;
+		case 8: // Prescale 4x
+		case 9: // Prescale 5x
+		case 10: // Prescale 6x
+		case 11: // Prescale 7x
+		case 12: // Prescale 8x
+		case 13: // Prescale 9x
+			nes_shm->video.xscale = video.xscale - 4;
+			nes_shm->video.yscale = video.yscale - 4;
 		break;
-		case 9: // PAL
+		case 14: // PAL
 			nes_shm->video.xscale = 3;
 			nes_shm->video.yscale = 1;
 		break;
@@ -272,7 +282,7 @@ int InitVideo(FCEUGI *gi)
 	{
 		nes_shm->video.ncol = iScale*NWIDTH;
 	}
-	if ( s_sponge == 9 )
+	if ( s_sponge == 14 )
 	{
 		nes_shm->video.nrow  = 1*s_tlines;
 		nes_shm->video.xyRatio = 3;
