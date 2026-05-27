@@ -5,7 +5,7 @@
 #define EMPTY_PALETTE_DEEMPH_X_7 EMPTY_PALETTE_64 EMPTY_PALETTE_64 EMPTY_PALETTE_64 EMPTY_PALETTE_64 EMPTY_PALETTE_64 EMPTY_PALETTE_64 EMPTY_PALETTE_64
 
 //this assumes the color is already shifted <<2, as it is in these cases
-#define P64RPC(x) ( ((x)&~3) | (((x)>>6)&3))
+#define P4RPC(x) ((x<<5)|(x<<2)|(x>>1))
 
 pal rp2c04001[512] = {
  #include "rp2c04001.h"
@@ -26,7 +26,7 @@ pal rp2c05004[512] = {
 	EMPTY_PALETTE_DEEMPH_X_7
 };
 
-#undef P64RPC
+#undef P4RPC
 
 // Fixed palette entries used by the GUI
 pal palette_unvarying[] = {
