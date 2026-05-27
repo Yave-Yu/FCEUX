@@ -208,8 +208,8 @@ extern int frame_display, input_display;
 
 int soundo = 1;
 
-int srendlinen = 8;
-int erendlinen = 231;
+int srendlinen = 0;
+int erendlinen = 239;
 int srendlinep = 0;
 int erendlinep = 239;
 

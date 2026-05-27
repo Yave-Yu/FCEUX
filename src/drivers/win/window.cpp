@@ -351,12 +351,16 @@ void CalcWindowSize(RECT *al)
 
 	double screen_width = VNSWID_NU(xres);
 	double screen_height = FSettings.TotalScanlines();
+	double tvAspect = 1;
 	if (eoptions & EO_TVASPECT)
-		screen_width = ceil(screen_height * (screen_width / xres) * (tvAspectX / tvAspectY));
+	{
+		screen_width = ceil(screen_height * (screen_width / xres));
+		tvAspect = tvAspectX / tvAspectY;
+	}
 
 	al->left = 0;
 	al->top = 0;
-	al->right = ceil(screen_width * winsizemulx);
+	al->right = ceil(screen_width * winsizemulx * tvAspect);
 	al->bottom = menuYoffset + ceil(screen_height * winsizemuly);
 
 	AdjustWindowRectEx(al,
