@@ -221,7 +221,7 @@ xcopy /y /d "$(ProjectDir)\..\src\drivers\win\7z_64.dll" "$(OutDir)"</Command>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>$(ProjectDir)../src/drivers/win/fceu_x86.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
-      <EnableDpiAwareness>true</EnableDpiAwareness>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
     </Manifest>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(ProjectDir)\..\src\drivers\win\7z.dll" "$(OutDir)"
