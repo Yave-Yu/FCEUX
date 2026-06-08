@@ -305,6 +305,7 @@ static void M78Sync() {
 }
 
 void Mapper78_Init(CartInfo *info) {
+	if (info->CRC32 == 0xba51ac6f) info->submapper = 3;
 	Latch_Init(info, M78Sync, 0, 0x8000, 0xFFFF, 0, 0);
 }
 
