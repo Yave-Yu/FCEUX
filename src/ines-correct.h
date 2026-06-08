@@ -6,7 +6,6 @@
 	{0x684afccd,	 -1,		1},	/* Space Hunter (J) */
 	{0xad9c63e2,	 -1,		1},	/* Space Shadow (J) */
 	{0xe1526228,	 -1,		1},	/* Quest of Ki */
-	{0xaf5d7aa2,	 -1,		0},	/* Clu Clu Land */
 	{0xcfb224e6,	 -1,		1},	/* Dragon Ninja (J) [p1][!].nes */
 	{0x4f2f1846,	 -1,		1},	/* Famista '89 - Kaimaku Han!! (J) */
 	{0xfcdaca80,	  0,		0},	/* Elevator Action */
@@ -58,13 +57,14 @@
 	{0xd8eff0df,	  3,		1},	/* Gradius (J) */
 	{0x1d41cc8c,	  3,		1},	/* Gyruss */
 	{0xcf322bb3,	  3,		1},	/* John Elway's Quarterback */
-	{0xb5d28ea2,	  3,		1},	/* Mystery Quest - mapper 3?*/
+	{0xb5d28ea2,	  3,		1},	/* Mystery Quest - mapper 3? */
 	{0x02cc3973,	  3,		1},	/* Ninja Kid */
 	{0xbc065fc3,	  3,		1},	/* Pipe Dream */
 	{0xc9ee15a7,	  3,	   -1},	/* 3 is probably best.  41 WILL NOT WORK. */
-	{0x13e09d7a,	  4,		0}, /*Dragon Wars (U) (proto) - comes with erroneous 4-screen mirroring set*/
+	{0xeb465156,	  3,	    1},	/* Kero Kero Keroppi no Daibouken */
+	{0x13e09d7a,	  4,		0}, /* Dragon Wars (U) (proto) - comes with erroneous 4-screen mirroring set */
 	{0x22d6d5bd,	  4,		1},
-	{0xd97c31b0,	  4,		1},	//Rasaaru Ishii no Childs Quest (J)
+	{0xd97c31b0,	  4,		1},	// Rasaaru Ishii no Childs Quest (J)
 	{0x404b2e8b,	  4,		2},	/* Rad Racer 2 */
 	{0x15141401,	  4,		8},	/* Asmik Kun Land */
 	{0x4cccd878,	  4,		8},	/* Cat Ninden Teyandee */
@@ -125,10 +125,12 @@
 	{0x496ac8f7,	 74,	   -1},	/* Ji Jia Zhan Shi (As) */
 	{0xae854cef,	 74,	   -1},	/* Jia A Fung Yun (Chinese) */
 	{0x3d1c3137,	 78,		8},	/* Uchuusen - Cosmo Carrier */
+	{0xba51ac6f,	 78,		0}, /* Holy Diver */
 	{0xa4fbb438,	 79,		0},
 	{0xd4a76b07,	 79,		0},	/* F-15 City Wars*/
 	{0x1eb4a920,	 79,		1},	/* Double Strike */
 	{0x3e1271d5,	 79,		1},	/* Tiles of Fate */
+	{0x985b1d05,	 87,		0}, /* Twinbee */
 	{0x0da5e32e,	 87,		1},	/* Urusei Yatsura */
 	{0xd2699893,	 88,		0},	/*  Dragon Spirit */
 	{0xbb7c5f7a,	 89,		8},	/* Mito Koumon or something similar */

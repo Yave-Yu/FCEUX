@@ -349,43 +349,61 @@ static void CheckHInfo(uint64 partialmd5) {
 	treat this differently by only listing games that should have battery-backed RAM.
 
 	Lower 64 bits of the MD5 hash.
+	FCEUX developer may messed up something? It actually reads higher 64 bits.
 	*/
 
 	static uint64 savie[] =
 	{
-		0xc04361e499748382ULL,	/* AD&D Heroes of the Lance */
-		0xb72ee2337ced5792ULL,	/* AD&D Hillsfar */
-		0x2b7103b7a27bd72fULL,	/* AD&D Pool of Radiance */
-		0x498c10dc463cfe95ULL,	/* Battle Fleet */
-		0x854d7947a3177f57ULL,	/* Crystalis */
-		0xfad22d265cd70820ULL,	/* Downtown Special: Kunio-kun no Jidaigeki Dayo Zenin Shuugou! */
-		0x4a1f5336b86851b6ULL,	/* DW */
-		0xb0bcc02c843c1b79ULL,	/* DW */
-		0x2dcf3a98c7937c22ULL,	/* DW 2 */
-		0x98e55e09dfcc7533ULL,	/* DW 4*/
-		0x733026b6b72f2470ULL,	/* Dw 3 */
-		0x6917ffcaca2d8466ULL,	/* Famista '90 */
-		0x8da46db592a1fcf4ULL,	/* Faria */
-		0xedba17a2c4608d20ULL,	/* Final Fantasy */
-		0x91a6846d3202e3d6ULL,	/* Final Fantasy */
-		0x012df596e2b31174ULL,	/* Final Fantasy 1+2 */
-		0xf6b359a720549ecdULL,	/* Final Fantasy 2 */
-		0x5a30da1d9b4af35dULL,	/* Final Fantasy 3 */
-		0xd63dcc68c2b20adcULL,	/* Final Fantasy J */
-		0x2ee3417ba8b69706ULL,	/* Hydlide 3*/
-		0xebbce5a54cf3ecc0ULL,	/* Justbreed */
-		0x6a858da551ba239eULL,	/* Kaijuu Monogatari */
-		0x2db8f5d16c10b925ULL,	/* Kyonshiizu 2 */
-		0x04a31647de80fdabULL,	/* Legend of Zelda */
-		0x94b9484862a26cbaULL,	/* Legend of Zelda */
-		0xa40666740b7d22feULL,	/* Mindseeker */
-		0x82000965f04a71bbULL,	/* Mirai Shinwa Jarvas */
-		0x77b811b2760104b9ULL,	/* Mouryou Senki Madara */
-		0x11b69122efe86e8cULL,	/* RPG Jinsei Game */
-		0x9aa1dc16c05e7de5ULL,	/* Startropics */
-		0x1b084107d0878bd0ULL,	/* Startropics 2*/
-		0xa70b495314f4d075ULL,	/* Ys 3 */
-		0x836c0ff4f3e06e45ULL,	/* Zelda 2 */
+		0x6922d92ce10967a8ULL,	/* AD&D Heroes of the Lance (J) */
+		0x4f46d1de7d0afba7ULL,	/* AD&D Heroes of the Lance (U) */
+		0x8c30921b9328f409ULL,	/* AD&D Hillsfar (J) */
+		0xb1c2df446373777bULL,	/* AD&D Hillsfar (U) */
+		0x3ca38a30f1ec4110ULL,	/* AD&D Pool of Radiance (J) */
+		0x859542620628afccULL,	/* AD&D Pool of Radiance (U) */
+		0xf3cb6e1a6022e503ULL,	/* Battle Fleet */
+		0xc8df134ce18a7d2fULL,	/* Downtown Special: Kunio-kun no Jidaigeki Dayo Zenin Shuugou! */
+		0xe8382f82570bc616ULL,	/* DW 1 (PRG0) */
+		0xe0413c76f69f5acaULL,	/* DW 1 (PRG1) */
+		0xccdb4563c9004d86ULL,	/* DW 2 */
+		0xb4b5416962ac800aULL,	/* DQ 3 (PRG0) */
+		0x5a0c984006b088c2ULL,	/* DQ 3 (PRG1) */
+		0x16a03048ce659d3dULL,	/* Dw 3 */
+		0x80d5683ac9553740ULL,	/* DQ 4 (PRG0) */
+		0x192f2997b7f5123eULL,	/* DQ 4 (PRG1) */
+		0xd8a1d610c93b96adULL,	/* Dw 4 (U) */
+		0xbf22d20bd7c5fc50ULL,	/* Famista '90 */
+		0x4f17d28ef72c5e2fULL,	/* Faria (J) */
+		0x7a01e068ab53e51bULL,	/* Faria (U) */
+		0x97a660fb70152637ULL,	/* Feng Shen Bang */
+		0x881ecc27f0d3b10eULL,	/* FF 1 (J) (PRG0) */
+		0x4dd4c6f2ff32da4dULL,	/* FF 1 (J) (PRG1) */
+		0x24ae5edf8375162fULL,	/* FF 1 (U) */
+		0x4b3342b2c143dadeULL,	/* FF 1+2 */
+		0x374ed97be8bfd628ULL,	/* FF 2 */
+		0x45a7d02ed0dc9266ULL,	/* FF 3 */
+		0x7155ba08492a466cULL,	/* Hydlide 3 */
+		0x8a60538025e37dbcULL,	/* Jing Ke Xin Zhuan */
+		0xc138b82de57f616cULL,	/* Justbreed */
+		0xc064782f5729f32eULL,	/* Kaijuu Monogatari */
+		0xb7843f2d0a4df4f5ULL,	/* Kyonshiizu 2 */
+		0xd9a1631d5c32d355ULL,	/* Legend of Zelda (PRG0) */
+		0xd3f453931146e95bULL,	/* Legend of Zelda (PRG1) */
+		0xb8b6caf3795468cbULL,	/* Legend of Zelda (J) */
+		0x7d98c75301dbcd72ULL,	/* Magical Taruruuto 1 (PRG0) */
+		0x4d46756da82fec49ULL,	/* Magical Taruruuto 1 (PRG1) */
+		0x88b3ab0e9aceb751ULL,	/* Magical Taruruuto 2 */
+		0xf2ef7e357127bfb0ULL,	/* Mindseeker */
+		0xc9329c7401ce9b8aULL,	/* Mirai Shinwa Jarvas */
+		0x2d9bc331e80cb239ULL,	/* Mouryou Senki Madara */
+		0x2391e4e11a70eed4ULL,	/* Ninjara Hoi! */
+		0x74a2aecb64165e71ULL,	/* RPG Jinsei Game */
+		0xb1eddbb71994db07ULL,	/* Startropics */
+		0x54a19f2911aa51ddULL,	/* Startropics 2 */
+		0xb8306e8dad7d0299ULL,	/* Taito Grand Prix */
+		0x41da606caba53bdeULL,	/* Ys 1 */
+		0xe5bee2f0beebd32bULL,	/* Ys 2 */
+		0x3f24ad48065c8c62ULL,	/* Ys 3 */
+		0x88c0493fb1146834ULL,	/* Zelda 2 */
 		0						/* Abandon all hope if the game has 0 in the lower 64-bits of its MD5 hash */
 	};
 
