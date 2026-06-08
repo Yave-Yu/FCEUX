@@ -463,6 +463,10 @@ static void UpdateSD(HWND hwndDlg)
 	}
 	else 
 	{
+		EnableWindow(GetDlgItem(hwndDlg,CHECK_SOUND_NOTRESETPHASE), TRUE);
+		EnableWindow(GetDlgItem(hwndDlg,CHECK_SOUND_REVERSEDPCM), TRUE);
+		EnableWindow(GetDlgItem(hwndDlg,CHECK_SOUND_LINEARMIXER),TRUE);
+		EnableWindow(GetDlgItem(hwndDlg,CHECK_SOUND_SWAPDUTY),TRUE);
 		EnableWindow(GetDlgItem(hwndDlg,CHECK_SOUND_MUTETURBO),TRUE);
 		EnableWindow(GetDlgItem(hwndDlg,CHECK_SOUND_MUTEFA),TRUE);
 		EnableWindow(GetDlgItem(hwndDlg,COMBO_SOUND_QUALITY),TRUE);
