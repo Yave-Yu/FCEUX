@@ -26,6 +26,8 @@ static uint8 IRQa;
 static uint8 WRAM[8192];
 static uint8 IRAM[128];
 
+static uint8 submapper;
+
 static DECLFR(AWRAM) {
 	return(WRAM[A - 0x6000]);
 }
@@ -408,6 +410,7 @@ static void N106_Power(void) {
 
 void Mapper19_Init(CartInfo *info) {
 	type = N163;
+	submapper = info->submapper;
 	battery = info->battery;
 	info->Power = N106_Power;
 
@@ -426,7 +429,7 @@ void Mapper19_Init(CartInfo *info) {
 	AddExState(N106_StateRegs, ~0, 0, 0);
 
 	if (info->battery) {
-		info->addSaveGameBuf( WRAM, 8192 );
+		if (submapper != 2) info->addSaveGameBuf( WRAM, 8192 );
 		info->addSaveGameBuf( IRAM, 128 );
 	}
 }
