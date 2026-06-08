@@ -26,8 +26,6 @@ static uint8 IRQa;
 static uint8 WRAM[8192];
 static uint8 IRAM[128];
 
-static uint8 submapper;
-
 static DECLFR(AWRAM) {
 	return(WRAM[A - 0x6000]);
 }
@@ -410,7 +408,6 @@ static void N106_Power(void) {
 
 void Mapper19_Init(CartInfo *info) {
 	type = N163;
-	submapper = info->submapper;
 	battery = info->battery;
 	info->Power = N106_Power;
 
@@ -429,7 +426,31 @@ void Mapper19_Init(CartInfo *info) {
 	AddExState(N106_StateRegs, ~0, 0, 0);
 
 	if (info->battery) {
-		if (submapper != 2) info->addSaveGameBuf( WRAM, 8192 );
+		// The following game with battery don't need WRAM
+		switch (info->CRC32)
+		{
+		case 0xb5ff71ab: // Battle Fleet
+		//case 0x2ae535ca: // Dragon Ninja
+		case 0x10c8f2fa: // Dokuganryuu Masamune
+		//case 0xef7996bf: // Erika to Satoru no Yume Bouken
+		case 0x0c1792da: // Famista '90
+		//case 0x5746a461: // Final Lap
+		case 0x47c2020b: // Hydlide 3 - Yami Kara no Houmonsha
+		case 0xbc11e61a: // Kaijuu Monogatari
+		//case 0x35d8c961: // Mappy Kids
+		case 0xace56f39: // Mind Seeker
+		//case 0x4c5836bd: // Namco Classic
+		//case 0x684b292f: // Namco Classic II
+		//case 0x9edbe2e2: // Rolling Thunder
+		//case 0xca69751b: // Star Wars
+		//case 0xc811dc7a: // Youkai Douchuuki
+			info->addSaveGameBuf(WRAM, 0);
+			break;
+		default: // Otherwise use WRAM
+			info->addSaveGameBuf(WRAM, 8192);
+			break;
+		}
+		
 		info->addSaveGameBuf( IRAM, 128 );
 	}
 }
