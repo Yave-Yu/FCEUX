@@ -797,6 +797,41 @@ static const char *GetMovieRecordModeStr()
 	}
 }
 
+static int MovieFileExistsForOverwritePrompt(const char* fname)
+{
+	EMUFILE* fp;
+	int exists;
+
+	if(!fname || !fname[0])
+		return 0;
+
+	fp = FCEUD_UTF8_fstream(fname, "rb");
+	exists = (fp && !fp->fail());
+	delete fp;
+
+	return exists;
+}
+
+static int ConfirmOverwriteMovieFile(const char* fname)
+{
+#ifdef __WIN_DRIVER__
+	char msg[MAX_PATH + 256];
+
+	if(!MovieFileExistsForOverwritePrompt(fname))
+		return 1;
+
+	snprintf(msg, sizeof(msg),
+		"The movie file already exists:\n\n%s\n\nDo you want to replace it?",
+		fname);
+	msg[sizeof(msg) - 1] = 0;
+
+	return MessageBox(NULL, msg, "Confirm Movie Overwrite",
+		MB_ICONWARNING | MB_YESNO | MB_DEFBUTTON2) == IDYES;
+#else
+	return 1;
+#endif
+}
+
 static EMUFILE *openRecordingMovie(const char* fname)
 {
 	if (osRecordingMovie)
@@ -1141,6 +1176,11 @@ void FCEUI_SaveMovie(const char *fname, EMOVIE_FLAG flags, std::wstring author)
 		return;
 
 	assert(fname);
+
+	// Ask before replacing an existing movie. Do this before FCEUI_StopMovie(),
+	// so cancelling the prompt does not stop the current movie session.
+	if (!ConfirmOverwriteMovieFile(fname))
+		return;
 
 	FCEUI_StopMovie();
 
