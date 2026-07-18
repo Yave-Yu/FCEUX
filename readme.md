@@ -1,4 +1,4 @@
-# fceux [![Build status](https://ci.appveyor.com/api/projects/status/github/TASEmulators/fceux?branch=master&svg=true)](https://ci.appveyor.com/project/zeromus/fceux)
+# FCEUX [![Build status](https://ci.appveyor.com/api/projects/status/github/TASEmulators/fceux?branch=master&svg=true)](https://ci.appveyor.com/project/zeromus/fceux)
 
 An open source NES Emulator for Windows and Unix that features solid emulation accuracy and state of the art tools for power users. For some reason casual gamers use it too.
 
@@ -10,12 +10,10 @@ Interim builds:
 * Win64 Qt/SDL: [fceux-win64-QtSDL.zip](https://github.com/TASEmulators/fceux/releases/download/interim-build/fceux-win64-QtSDL.zip)
 * Ubuntu: [fceux-ubuntu-x64.deb](https://github.com/TASEmulators/fceux/releases/download/interim-build/fceux-ubuntu-x64.deb)
 * MacOSX: [fceux-Darwin.dmg](https://github.com/TASEmulators/fceux/releases/download/interim-build/fceux-Darwin.dmg)
-* Status: [Appveyor](https://ci.appveyor.com/project/zeromus/fceux/)
+* Status: [Appveyor](https://ci.appveyor.com/project/zeromus/fceux)
 
-But you might like Mesen more: https://github.com/SourMesen/Mesen2
+But you might like Mesen more: https://github.com/Yave-Yu/MesenYY/releases
 
-You should get releases from here: https://sourceforge.net/projects/fceultra/files/
-
-That's because github forces us to use tags we don't have for releases.
-
-2.6.6 is the most recent release but most people are using the autobuilds.
+2.6.6 is the most recent release but there has a better fork version (Windows only):
+* Win32: [FCEUX-Y320-Win32](https://wohlsoft.ru/forum/download/file.php?id=6524&filename=FCEUX-Y320-Win32.7z)
+* Win64: [FCEUX-Y320-Win64](https://wohlsoft.ru/forum/download/file.php?id=6525&filename=FCEUX-Y320-Win64.7z)
