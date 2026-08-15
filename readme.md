@@ -12,8 +12,8 @@ Interim builds:
 * MacOSX: [fceux-Darwin.dmg](https://github.com/TASEmulators/fceux/releases/download/interim-build/fceux-Darwin.dmg)
 * Status: [Appveyor](https://ci.appveyor.com/project/zeromus/fceux)
 
-But you might like Mesen more: https://github.com/Yave-Yu/MesenYY/releases
+But you might like Mesen more: https://github.com/Yave-Yu/MesenYY
 
-2.6.6 is the most recent release but there has a better fork version (Windows only):
+2.6.6 is the most recent release but here has a better fork version (Windows only):
 * Win32: [FCEUX-Y320-Win32](https://wohlsoft.ru/forum/download/file.php?id=6524&filename=FCEUX-Y320-Win32.7z)
 * Win64: [FCEUX-Y320-Win64](https://wohlsoft.ru/forum/download/file.php?id=6525&filename=FCEUX-Y320-Win64.7z)
